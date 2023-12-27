@@ -1,12 +1,14 @@
+import 'package:djembe/djembe.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:djembe/djembe.dart';
-
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
+  group('FormFieldValidators', () {
+    test('mandatory() returns error when the text is null or empty.', () {
+      const errorText = 'ERROR';
+      final sut = FormFieldValidators.mandatory(errorText: errorText);
+      expect(sut.call(''), errorText);
+      expect(sut.call(null), errorText);
+      expect(sut.call('foo'), null);
+    });
   });
 }
