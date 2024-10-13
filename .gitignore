@@ -31,3 +31,6 @@ build/
 
 # FVM related
 /.fvm/flutter_sdk
+
+# FVM Version Cache
+.fvm/
